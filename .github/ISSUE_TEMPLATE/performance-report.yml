@@ -1,0 +1,137 @@
+name: "⚡ Performance Report"
+description: "Report performance issues or optimization opportunities"
+title: "[PERFORMANCE] "
+labels: ["performance", "optimization"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us identify and fix performance bottlenecks. This includes slow API responses, 
+        memory leaks, high CPU usage, and general optimization opportunities.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: "Affected Component"
+      description: "Which component has performance issues?"
+      options:
+        - Backend API
+        - Frontend/UI
+        - Market Data Service
+        - Database Queries
+        - Cache Layer
+        - Paper Trading Engine
+        - AI Agent Processing
+        - Real-time Updates
+        - Data Aggregation
+        - Deployment/Infrastructure
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: "Performance Issue"
+      description: "What performance problem are you experiencing?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: symptoms
+    attributes:
+      label: "Symptoms"
+      description: "What indicates the performance problem?"
+      placeholder: |
+        - Slow response times (measure: XX seconds)
+        - High memory usage (measure: XX MB)
+        - CPU spikes (measure: XX%)
+        - Timeout errors
+        - Excessive database queries
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Steps to Reproduce"
+      description: "How to consistently reproduce the issue"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "Environment details (local, staging, production)"
+      placeholder: |
+        - OS: 
+        - CPU: 
+        - Memory: 
+        - Load/concurrency: 
+        - Data volume: 
+
+  - type: textarea
+    id: metrics
+    attributes:
+      label: "Performance Metrics"
+      description: "Measurement data if available"
+      placeholder: |
+        - Response time: X ms
+        - Memory usage: X MB
+        - CPU usage: X%
+        - Database queries: X per request
+        - Cache hit rate: X%
+
+  - type: textarea
+    id: baseline
+    attributes:
+      label: "Baseline/Expected"
+      description: "What should the performance be?"
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity"
+      options:
+        - Critical (System unavailable)
+        - High (Severe degradation)
+        - Medium (Noticeable slowness)
+        - Low (Minor delays)
+    validations:
+      required: true
+
+  - type: textarea
+    id: profiling
+    attributes:
+      label: "Profiling Data"
+      description: "Attach flame graphs, traces, or profiling results"
+      render: bash
+
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: "Suggested Optimizations"
+      description: "Any ideas for improvement?"
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "Additional Context"
+      description: "Any other relevant information"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "Issue occurs consistently"
+          required: false
+        - label: "Baseline expectations documented"
+          required: false
+        - label: "Profiling data collected"
+          required: false
+        - label: "Not related to network latency"
+          required: false
